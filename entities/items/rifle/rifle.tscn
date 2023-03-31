@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://qfufhsx2byg"]
+
+[ext_resource type="PackedScene" uid="uid://ddvgsyflpw3pj" path="res://entities/items/item.tscn" id="1_hfm07"]
+[ext_resource type="Script" path="res://entities/items/rifle/rifle.gd" id="2_kfoc5"]
+[ext_resource type="PackedScene" uid="uid://c0cjb2j7xgt4j" path="res://components/shooter/shooter.tscn" id="3_cxj6w"]
+[ext_resource type="PackedScene" uid="uid://cxdred21ulk0w" path="res://components/magazine/magazine.tscn" id="4_fhffa"]
+[ext_resource type="PackedScene" uid="uid://cty5v0ji6rgwx" path="res://entities/projectiles/bullet/bullet.tscn" id="5_bn4fm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fa6ld"]
+size = Vector2(8, 2)
+
+[node name="Rifle" instance=ExtResource("1_hfm07")]
+script = ExtResource("2_kfoc5")
+
+[node name="Magazine" parent="." index="0" instance=ExtResource("4_fhffa")]
+
+[node name="Shooter" parent="." index="1" node_paths=PackedStringArray("Magazine") instance=ExtResource("3_cxj6w")]
+projectile_accuracy = 50
+reload_time = 0.8
+projectile = ExtResource("5_bn4fm")
+Magazine = NodePath("../Magazine")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_fa6ld")
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="3"]
+offset = Vector2(-1, 0)
+polygon = PackedVector2Array(-3, -1, 5, -1, 5, 1, -3, 1)

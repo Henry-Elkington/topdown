@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3p7x8jsyh3b0"]
+
+[ext_resource type="Script" path="res://entities/projectiles/bullet/bullet.gd" id="1_uhte3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k60nm"]
+radius = 0.7
+
+[node name="Bb" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = 4.0
+angular_damp = 4.0
+script = ExtResource("1_uhte3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k60nm")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-0.5, -0.5, -0.0156212, -0.638976, 0.5, -0.5, 0.616858, 0.00590611, 0.5, 0.5, -0.0156212, 0.638386, -0.5, 0.5, -0.6357, -0.00649548)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
