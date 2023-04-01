@@ -15,6 +15,7 @@ script = ExtResource("1_uhte3")
 shape = SubResource("CircleShape2D_k60nm")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.101961, 0.101961, 0.101961, 1)
 polygon = PackedVector2Array(-0.5, -0.5, -0.0156212, -0.638976, 0.5, -0.5, 0.616858, 0.00590611, 0.5, 0.5, -0.0156212, 0.638386, -0.5, 0.5, -0.6357, -0.00649548)
 
 [node name="Timer" type="Timer" parent="."]

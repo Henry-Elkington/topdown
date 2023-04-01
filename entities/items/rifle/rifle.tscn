@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://qfufhsx2byg"]
+[gd_scene load_steps=8 format=3 uid="uid://qfufhsx2byg"]
 
 [ext_resource type="PackedScene" uid="uid://ddvgsyflpw3pj" path="res://entities/items/item.tscn" id="1_hfm07"]
 [ext_resource type="Script" path="res://entities/items/rifle/rifle.gd" id="2_kfoc5"]
 [ext_resource type="PackedScene" uid="uid://c0cjb2j7xgt4j" path="res://components/shooter/shooter.tscn" id="3_cxj6w"]
+[ext_resource type="Texture2D" uid="uid://buo7eclt2q547" path="res://assets/sprites/rifle.png" id="3_qrngo"]
 [ext_resource type="PackedScene" uid="uid://cxdred21ulk0w" path="res://components/magazine/magazine.tscn" id="4_fhffa"]
-[ext_resource type="PackedScene" uid="uid://cty5v0ji6rgwx" path="res://entities/projectiles/bullet/bullet.tscn" id="5_bn4fm"]
+[ext_resource type="PackedScene" uid="uid://cyej5wy7ipwqu" path="res://entities/projectiles/bullet/bullet.tscn" id="5_bn4fm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa6ld"]
 size = Vector2(8, 2)
@@ -15,9 +16,8 @@ script = ExtResource("2_kfoc5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_fa6ld")
 
-[node name="Polygon2D" type="Polygon2D" parent="." index="1"]
-offset = Vector2(-1, 0)
-polygon = PackedVector2Array(-3, -1, 5, -1, 5, 1, -3, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_qrngo")
 
 [node name="Components" type="Node2D" parent="." index="2"]
 
