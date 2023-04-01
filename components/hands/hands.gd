@@ -12,6 +12,11 @@ func _physics_process(delta: float) -> void:
 	position = (get_viewport().get_mouse_position()-Charicter.get_global_transform_with_canvas().origin).normalized() * hand_distance
 	transform = transform.looking_at(get_viewport().get_mouse_position()-Charicter.get_global_transform_with_canvas().origin)
 
+	if transform.basis_xform(Vector2(10, 0)).x < 0:
+		scale.y = -1
+	else:
+		scale.y = 1
+
 func pickup() -> void:
 	if CurrentItem == null:
 		if Interact.target != null:
