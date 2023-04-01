@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c0e6wdo5sps2v"]
 
-[ext_resource type="Texture2D" uid="uid://cmt1jsnytifpm" path="res://assets/sprites/icon.svg" id="1_1qu0r"]
+[ext_resource type="Texture2D" uid="uid://ddmf14eaj0kgc" path="res://assets/sprites/guy.png" id="1_siuf2"]
 [ext_resource type="PackedScene" uid="uid://4deklxde7hn2" path="res://components/hands/hands.tscn" id="2_7qsio"]
 [ext_resource type="PackedScene" path="res://components/interact/interact.tscn" id="2_greym"]
 [ext_resource type="PackedScene" uid="uid://jbxgdy7euwhc" path="res://components/velocity/velocity.tscn" id="2_lfuhg"]
@@ -23,7 +23,7 @@ func _physics_process(delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3ctw"]
-size = Vector2(10, 12)
+size = Vector2(10, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi25k"]
 radius = 15.0
@@ -33,8 +33,7 @@ script = SubResource("GDScript_nxmxh")
 metadata/_edit_vertical_guides_ = []
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.078125, 0.09375)
-texture = ExtResource("1_1qu0r")
+texture = ExtResource("1_siuf2")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_h3ctw")
