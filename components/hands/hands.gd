@@ -1,11 +1,18 @@
 extends Node2D
 class_name Hands
 
-var CurrentItem: Item
+@export var hand_distance: float = 10
 
+@export var Charicter: CharacterBody2D
 @export var Interact: Interact
 
-func pickup():
+var CurrentItem: Item
+
+func _physics_process(delta: float) -> void:
+	position = (get_viewport().get_mouse_position()-Charicter.get_global_transform_with_canvas().origin).normalized() * hand_distance
+	transform = transform.looking_at(get_viewport().get_mouse_position()-Charicter.get_global_transform_with_canvas().origin)
+
+func pickup() -> void:
 	if CurrentItem == null:
 		if Interact.target != null:
 			CurrentItem = Interact.target
@@ -28,10 +35,10 @@ func pickup():
 
 		CurrentItem = null
 
-func primary():
+func primary() -> void:
 	if CurrentItem != null:
 		CurrentItem._primary()
 
-func secondary():
+func secondary() -> void:
 	if CurrentItem != null:
 		CurrentItem._secondary()

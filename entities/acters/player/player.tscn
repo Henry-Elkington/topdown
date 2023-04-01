@@ -3,29 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://cmt1jsnytifpm" path="res://assets/sprites/icon.svg" id="1_1qu0r"]
 [ext_resource type="PackedScene" uid="uid://4deklxde7hn2" path="res://components/hands/hands.tscn" id="2_7qsio"]
 [ext_resource type="PackedScene" path="res://components/interact/interact.tscn" id="2_greym"]
-[ext_resource type="PackedScene" uid="uid://obuhutgtparl" path="res://entities/control/reload_bar.tscn" id="2_ynerp"]
+[ext_resource type="PackedScene" uid="uid://jbxgdy7euwhc" path="res://components/velocity/velocity.tscn" id="2_lfuhg"]
 
 [sub_resource type="GDScript" id="GDScript_nxmxh"]
 script/source = "extends CharacterBody2D
 
-var move_speed: float = 125
-var move_accel: float = 0.5
-var move_fric: float = 0.2
-
-var hand_lenth: float = 10
-
-@export var Hands: Hands
-@onready var ReloadBar = $Camera2D/ReloadBar
+@onready var Hands := $Components/Hands
+@onready var Velocity := $Components/Velocity
 
 func _physics_process(delta):
-	if Hands.get_child_count() > 0:
-		var ReloadTimer = get_node('Hands/Rifle2/Shooter/Timer')
-		print(ReloadTimer.time_left)
-		ReloadBar.set_size(Vector2(ReloadTimer.time_left * 100, 4))
-
-	Hands.position = (get_viewport().get_mouse_position()-get_global_transform_with_canvas().origin).normalized() * hand_lenth
-	Hands.transform = Hands.transform.looking_at(get_viewport().get_mouse_position()-get_global_transform_with_canvas().origin)
-
 	if Input.is_action_just_pressed(\"action\"):
 		Hands.pickup()
 	if Input.is_action_just_pressed(\"primary\"):
@@ -33,14 +19,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(\"secondary\"):
 		Hands.secondary()
 
-	var input_vector = Input.get_vector(\"left\", \"right\", \"up\", \"down\")
-
-	if input_vector != Vector2.ZERO:
-		velocity = velocity.lerp(input_vector * move_speed, move_accel)
-	else:
-		velocity = velocity.lerp(input_vector * move_speed, move_fric)
-
-	move_and_slide()
+	Velocity.move(Input.get_vector(\"left\", \"right\", \"up\", \"down\"))
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3ctw"]
@@ -49,9 +28,8 @@ size = Vector2(10, 12)
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi25k"]
 radius = 15.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Hands")]
+[node name="Player" type="CharacterBody2D"]
 script = SubResource("GDScript_nxmxh")
-Hands = NodePath("Hands")
 metadata/_edit_vertical_guides_ = []
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -61,18 +39,18 @@ texture = ExtResource("1_1qu0r")
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_h3ctw")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Components" type="Node2D" parent="."]
 
-[node name="ReloadBar" parent="Camera2D" instance=ExtResource("2_ynerp")]
-offset_left = -137.0
-offset_top = -75.0
-offset_right = -137.0
-offset_bottom = -75.0
+[node name="Velocity" parent="Components" node_paths=PackedStringArray("Acter") instance=ExtResource("2_lfuhg")]
+Acter = NodePath("../..")
 
-[node name="Interact" parent="." instance=ExtResource("2_greym")]
+[node name="Interact" parent="Components" instance=ExtResource("2_greym")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Interact"]
 shape = SubResource("CircleShape2D_bi25k")
 
-[node name="Hands" parent="." node_paths=PackedStringArray("Interact") instance=ExtResource("2_7qsio")]
+[node name="Hands" parent="Components" node_paths=PackedStringArray("Charicter", "Interact") instance=ExtResource("2_7qsio")]
+Charicter = NodePath("../..")
 Interact = NodePath("../Interact")
+
+[node name="Camera2D" type="Camera2D" parent="."]
