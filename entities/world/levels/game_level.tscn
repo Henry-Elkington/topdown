@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsk86l7k23t37"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Texture2D" uid="uid://dincboarglwos" path="res://assets/tilemaps/terrain_atlas.png" id="1_8o6w1"]
-[ext_resource type="PackedScene" uid="uid://c0e6wdo5sps2v" path="res://entities/acters/player/player.tscn" id="2_7ogvh"]
+[ext_resource type="PackedScene" uid="uid://c0e6wdo5sps2v" path="res://entities/characters/player/player.tscn" id="2_7ogvh"]
 [ext_resource type="PackedScene" uid="uid://qfufhsx2byg" path="res://entities/items/rifle/rifle.tscn" id="3_xvhv7"]
 [ext_resource type="PackedScene" uid="uid://t41c2jqi26go" path="res://entities/items/shotgun/shotgun.tscn" id="4_6u8da"]
-[ext_resource type="PackedScene" uid="uid://dtt2o05ist6sc" path="res://entities/acters/enemy/enemy.tscn" id="5_d6h7y"]
+[ext_resource type="PackedScene" path="res://entities/characters/enemy/enemy.tscn" id="5_d6h7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ynvy"]
 texture = ExtResource("1_8o6w1")

@@ -1,5 +1,5 @@
 extends Area2D
-class_name Interact
+class_name InteractArea
 
 var target: Item
 

@@ -1,5 +1,5 @@
 extends Node2D
-class_name Shooter
+class_name GunShooter
 
 @onready var ShootingAudio = $AudioStreamPlayer
 
@@ -13,7 +13,7 @@ class_name Shooter
 var reloading = false
 
 @export var projectile: PackedScene
-@export var Magazine: Magazine
+@export var Magazine: GunMagazine
 
 func shoot():
 	if !reloading:

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceqtca26hgsv4"]
+
+[ext_resource type="Script" path="res://components/directional_sprite/directional_sprite.gd" id="1_52mfd"]
+
+[node name="DirectionalSprite" type="Sprite2D"]
+hframes = 4
+script = ExtResource("1_52mfd")

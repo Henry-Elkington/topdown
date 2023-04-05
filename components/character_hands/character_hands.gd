@@ -1,16 +1,16 @@
 extends Node2D
-class_name Hands
+class_name CharacterHands
 
 @export var hand_distance: float = 10
 
-@export var Charicter: CharacterBody2D
-@export var Interact: Interact
+@export var Character: CharacterBody2D
+@export var Interact: InteractArea
 
 var CurrentItem: Item
 
 func _physics_process(delta: float) -> void:
-	position = (get_viewport().get_mouse_position()-Charicter.get_global_transform_with_canvas().origin).normalized() * hand_distance
-	transform = transform.looking_at(get_viewport().get_mouse_position()-Charicter.get_global_transform_with_canvas().origin)
+	position = (get_viewport().get_mouse_position()-Character.get_global_transform_with_canvas().origin).normalized() * hand_distance
+	transform = transform.looking_at(get_viewport().get_mouse_position()-Character.get_global_transform_with_canvas().origin)
 
 	if transform.basis_xform(Vector2(10, 0)).x < 0:
 		scale.y = -1

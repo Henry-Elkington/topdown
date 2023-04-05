@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://c845bdfiu2ekl"]
+
+[ext_resource type="Script" path="res://entities/characters/player/player.gd" id="1_6e05b"]
+[ext_resource type="PackedScene" uid="uid://bbtnyunestoel" path="res://components/character_velocity/character_velocity.tscn" id="2_6mnli"]
+[ext_resource type="PackedScene" uid="uid://ceqtca26hgsv4" path="res://components/directional_sprite/directional_sprite.tscn" id="3_isljr"]
+[ext_resource type="PackedScene" uid="uid://c5wwwn3otmk2" path="res://components/interact_area/interact_area.tscn" id="4_3hlu5"]
+[ext_resource type="PackedScene" uid="uid://dr52w8fc5rbar" path="res://components/character_hands/character_hands.tscn" id="5_xdg1a"]
+[ext_resource type="PackedScene" uid="uid://bxc738pb6apkf" path="res://components/hurtbox_area/hurtbox_area.tscn" id="7_2i1kp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3ctw"]
+size = Vector2(10, 14)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_6e05b")
+metadata/_edit_vertical_guides_ = []
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h3ctw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CharacterVelocity" parent="." node_paths=PackedStringArray("Character") instance=ExtResource("2_6mnli")]
+Character = NodePath("..")
+
+[node name="InteractArea" parent="." instance=ExtResource("4_3hlu5")]
+
+[node name="CharacterHands" parent="." node_paths=PackedStringArray("Character", "Interact") instance=ExtResource("5_xdg1a")]
+Character = NodePath("..")
+Interact = NodePath("../InteractArea")
+
+[node name="DirectionalSprite" parent="." instance=ExtResource("3_isljr")]
+
+[node name="HurtboxArea" parent="." instance=ExtResource("7_2i1kp")]

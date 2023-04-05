@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://by6iij163epq"]
+
+[ext_resource type="Script" path="res://components/gun_magazine/gun_magazine.gd" id="1_gnajs"]
+
+[node name="GunMagazine" type="Node2D"]
+script = ExtResource("1_gnajs")

@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtt2o05ist6sc"]
+[gd_scene load_steps=5 format=3 uid="uid://cj2hu5s7gcp0v"]
 
-[ext_resource type="Script" path="res://entities/acters/enemy/enemy.gd" id="1_v5b6g"]
+[ext_resource type="Script" path="res://entities/characters/enemy/enemy.gd" id="1_v5b6g"]
 [ext_resource type="Texture2D" uid="uid://cww601wpkc4ce" path="res://assets/sprites/zombie4guy.png" id="2_h6weo"]
-[ext_resource type="PackedScene" uid="uid://jbxgdy7euwhc" path="res://components/velocity/velocity.tscn" id="3_1acxe"]
+[ext_resource type="PackedScene" uid="uid://bbtnyunestoel" path="res://components/character_velocity/character_velocity.tscn" id="3_1acxe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68fui"]
 size = Vector2(10, 14)
@@ -22,7 +22,6 @@ shape = SubResource("RectangleShape2D_68fui")
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="Velocity" parent="Components" node_paths=PackedStringArray("Acter") instance=ExtResource("3_1acxe")]
-Acter = NodePath("../..")
+[node name="Velocity" parent="Components" instance=ExtResource("3_1acxe")]
 move_speed = 25.0
 move_accel = 0.2

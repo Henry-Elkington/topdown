@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0cjb2j7xgt4j"]
+[gd_scene load_steps=3 format=3 uid="uid://b0k4micpecn4e"]
 
-[ext_resource type="Script" path="res://components/shooter/shooter.gd" id="1_us4ul"]
+[ext_resource type="Script" path="res://components/gun_shooter/gun_shooter.gd" id="1_us4ul"]
 [ext_resource type="AudioStream" uid="uid://diy7qenph2cgx" path="res://assets/sounds/Gun.mp3" id="2_x8eqo"]
 
-[node name="Shooter" type="Node2D"]
+[node name="GunShooter" type="Node2D"]
 script = ExtResource("1_us4ul")
 
 [node name="Timer" type="Timer" parent="."]

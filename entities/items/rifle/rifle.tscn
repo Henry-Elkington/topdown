@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://qfufhsx2byg"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="PackedScene" uid="uid://ddvgsyflpw3pj" path="res://entities/items/item.tscn" id="1_hfm07"]
 [ext_resource type="Script" path="res://entities/items/rifle/rifle.gd" id="2_kfoc5"]
-[ext_resource type="PackedScene" uid="uid://c0cjb2j7xgt4j" path="res://components/shooter/shooter.tscn" id="3_cxj6w"]
+[ext_resource type="PackedScene" path="res://components/gun_shooter/gun_shooter.tscn" id="3_cxj6w"]
 [ext_resource type="Texture2D" uid="uid://buo7eclt2q547" path="res://assets/sprites/rifle.png" id="3_qrngo"]
-[ext_resource type="PackedScene" uid="uid://cxdred21ulk0w" path="res://components/magazine/magazine.tscn" id="4_fhffa"]
-[ext_resource type="PackedScene" uid="uid://cyej5wy7ipwqu" path="res://entities/projectiles/bullet/bullet.tscn" id="5_bn4fm"]
+[ext_resource type="PackedScene" path="res://components/gun_magazine/gun_magazine.tscn" id="4_fhffa"]
+[ext_resource type="PackedScene" uid="uid://cty5v0ji6rgwx" path="res://entities/projectiles/bullet/bullet.tscn" id="5_bn4fm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa6ld"]
 size = Vector2(8, 2)
